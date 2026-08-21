@@ -1,0 +1,64 @@
+{
+  "title": "ARIES-Mission: Auditable Routing of Frozen Vision-Language UAV Waypoints",
+  "description": "Reported five-candidate ARIES-Mission routing implementation, frozen derived waypoint sets, seeds, route outputs and focused reproduction instructions for the Scientific Reports revision.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "mit",
+  "version": "3.0.0",
+  "publication_date": "2026-08-21",
+  "language": "eng",
+  "keywords": [
+    "unmanned aerial vehicle",
+    "vision-language model",
+    "waypoint routing",
+    "travelling salesperson problem",
+    "route selection"
+  ],
+  "creators": [
+    {
+      "name": "Wei, Junhao",
+      "orcid": "0009-0006-0553-2032",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Li, Haochen",
+      "orcid": "0009-0000-8213-5854",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Zhao, Yifu",
+      "orcid": "0009-0004-2363-9269",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Yao, Dexing",
+      "orcid": "0009-0007-6267-8967",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Li, Yanxiao",
+      "orcid": "0009-0008-3389-1619",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Lu, Baili",
+      "orcid": "0009-0000-3814-2918",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Im, Sio-Kei",
+      "orcid": "0000-0002-5599-4300",
+      "affiliation": "Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Yang, Xu",
+      "orcid": "0000-0002-7037-3609",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    },
+    {
+      "name": "Wang, Yapeng",
+      "orcid": "0000-0002-1085-5091",
+      "affiliation": "Faculty of Applied Sciences, Macao Polytechnic University, Macao 999078, China"
+    }
+  ]
+}

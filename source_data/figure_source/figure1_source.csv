@@ -1,0 +1,6 @@
+element,role
+semantic input,frozen waypoint set
+candidate set,Raw; NN+2-opt; ACO; DE; PSO
+terminal rule,"validate, rescore, select minimum"
+external controls,Insertion+2-opt; Multi-start 2-opt; ILS; ACO×3
+exact reference,Concorde certification only

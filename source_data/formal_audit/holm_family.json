@@ -1,0 +1,19 @@
+{
+  "family": [
+    "Portfolio vs Raw",
+    "Portfolio vs NearestNeighbor",
+    "Portfolio vs CheapestInsertion",
+    "Portfolio vs NN+2opt",
+    "Portfolio vs Insertion+2opt",
+    "Portfolio vs MultiStart2opt",
+    "Portfolio vs ILS",
+    "Portfolio vs ACO",
+    "Portfolio vs ACO\u00d73",
+    "Portfolio vs DE",
+    "Portfolio vs PSO",
+    "Portfolio vs MultiStart2opt-RT",
+    "Portfolio vs ILS-RT"
+  ],
+  "correlations_in_family": false,
+  "correlations_status": "exploratory"
+}

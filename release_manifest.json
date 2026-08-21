@@ -1,0 +1,19 @@
+{
+  "release_name": "ARIES-Mission-Scientific-Reports-revision-v3.0.0",
+  "release_scope": "reported five-candidate ARIES-Mission implementation and reproduction only",
+  "release_status": "MIT-licensed and upload-ready; Zenodo DOI pending",
+  "frozen_tasks": 30,
+  "reported_route_records": 3600,
+  "portfolio_task_aggregated_total_km": 60.34770333074673,
+  "checksummed_files": 44,
+  "exclusions": [
+    "external baseline and exact-solver implementations",
+    "manuscript figure-generation code and rendered figures (source-data CSVs retained)",
+    "manuscript and submission files",
+    "third-party Concorde binary",
+    "third-party satellite images",
+    "raw Mission Planner waypoint files",
+    "model weights and credentials",
+    "unreported internal exploratory material"
+  ]
+}
