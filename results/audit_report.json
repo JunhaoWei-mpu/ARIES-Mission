@@ -1,0 +1,30 @@
+{
+  "stochastic_rows": 4200,
+  "rows_per_stochastic_method": {
+    "ACO": 600,
+    "ACO\u00d73": 600,
+    "DE": 600,
+    "NN+2opt": 600,
+    "PSO": 600,
+    "Portfolio": 600,
+    "Raw": 600
+  },
+  "valid_stochastic_routes": 4200,
+  "five_candidate_selections_checked": 600,
+  "aco_multistart_budget": 22500,
+  "concorde_certified_tasks": 30,
+  "classical_control_rows": 2430,
+  "rows_per_classical_method": {
+    "ILS": 600,
+    "ILS-RT": 600,
+    "MultiStart2opt": 600,
+    "MultiStart2opt-RT": 600,
+    "Insertion+2opt": 30
+  },
+  "formal_source_rows": 6747,
+  "formal_routes_rescored": 6747,
+  "maximum_formal_rescore_difference_km": 8.881784197001252e-16,
+  "held_karp_crosschecks": 27,
+  "maximum_held_karp_difference_km": 2.220446049250313e-16,
+  "status": "pass"
+}

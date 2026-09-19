@@ -1,63 +1,66 @@
-# ARIES-Mission routing implementation
+# ARIES-Mission: A Vision-Language System for Auditable UAV Mission Generation
 
-This repository contains the code required to run and audit the reported
-five-candidate ARIES-Mission routing implementation on the 30 frozen waypoint
-sets. It is intentionally narrower than the manuscript analysis package.
+ARIES-Mission separates semantic target generation from geometric mission
+construction through an explicit, auditable interface. Multiple complete route
+candidates remain available until permutation validation, common Haversine
+rescoring and terminal arbitration. The controlled experiments freeze the
+semantic output to isolate geometric routing from perception errors.
 
-The released implementation contains:
+## Version 3.1.0
 
-- the common double-precision Haversine objective and permutation-validity
-  checks;
-- Raw, NN+2-opt, ACO, DE and PSO candidate generation required by the frozen
-  five-candidate definition;
-- deterministic terminal validation, common rescoring and tie handling;
-- the 30 frozen geographic waypoint sets, seeds and reported route outputs;
-- a command-line reproduction program and focused algorithm tests.
-- generated formal audit tables, exact-certification metadata and figure
-  source-data CSVs required to trace the published numbers.
+This revision expands the public code coverage using the existing implementations.
+It adds no new experiments and changes no reported route, statistical family,
+calibrated operation budget or original timing measurement. Version 3.1.0 is archived at https://doi.org/10.5281/zenodo.22843586.
+The published ZIP was downloaded and verified against the checked release archive.
+The preceding archive is https://doi.org/10.5281/zenodo.22044422.
+Source repository: https://github.com/JunhaoWei-mpu/ARIES-Mission.
 
-The NN+2-opt routine is included only because it is a required candidate in the
-reported five-candidate implementation. The external comparison suite is not
-included. In particular, this repository does not contain implementations of
-nearest-neighbour-only, cheapest insertion, insertion+2-opt, Multi-start 2-opt,
-iterated local search, ACOx3, Held--Karp or Concorde controls. It also excludes
-all manuscript figure-generation code and third-party assets.
+Included code covers:
 
-External-control and exact-solver implementations are not present. Their
-already generated audit records are retained under `source_data/formal_audit/`
-so that the article's reported comparisons remain traceable. Figure source-data
-CSVs are retained under `source_data/figure_source/`, but no plotting code or
-rendered manuscript figure is included.
+- Raw, NN+2-opt, ACO, DE and PSO; common evaluator and terminal selector;
+- nearest neighbour, cheapest insertion, insertion+2-opt, Multi-start 2-opt,
+  ILS and ACO×3, including runtime-calibrated control drivers;
+- runtime calibration and latency scripts, frozen calibration report and budgets;
+- statistics, source-data assembly, route audit, table and figure generation;
+- Concorde wrapper and exact-reference metadata, Held–Karp cross-check code;
+- the existing optional grounding adapter, tests and reproduction instructions.
 
-## Quick verification
+The geographic routing output is not an autopilot command or a flight-safety
+certificate. Perception accuracy and physical flight execution were not evaluated.
+The optional grounding adapter does not recover the missing historical immutable
+model revision; frozen inputs are the source of truth for the reported study.
 
-Use Python 3.13 and the pinned packages in `requirements-lock.txt`.
+## Evidence and interpretation
+
+Recognition order totals 79.655 km; the five-candidate implementation totals
+60.348 km. Primary Multi-start, ILS and ACO×3 total 60.336–60.364 km. Runtime-calibrated
+Multi-start totals 60.333 km, with 4.876 s mean serial runtime versus 7.307 s for
+Portfolio. Portfolio records 0/23/7 wins/ties/losses and Holm-adjusted
+p=0.0499609093097315; the control reaches the integerisation bound on all task means.
+This is a backend deployment trade-off, not evidence of heterogeneous-search
+superiority. Comparisons against selectable candidates measure incremental
+candidate-pool benefit, not independent algorithm superiority.
+
+## Reproduction
+
+Use Python 3.13 and `requirements-lock.txt`. See `REPRODUCE.md` for verification
+without route search, optional experimental reruns and third-party dependencies.
 
 ```bash
 python -m pip install -r requirements-lock.txt
 python -m pytest -q
-python -m aries_portfolio.reproduce --root . --tasks 1 --seeds 0 --workers 1
+python scripts/reproduce_analysis.py --output reproduced_analysis --figures
 ```
 
-The last command is a one-task, one-seed smoke reproduction. To rerun the complete
-reported implementation over all 30 tasks and seeds 0--19:
+The last command recalculates summaries and audits all archived routes in a new
+directory. It does not perform new searches, recalibration, VLM calls or timing
+experiments, and leaves archived records unchanged.
 
-```bash
-python -m aries_portfolio.reproduce --root .
-```
+## Licence and exclusions
 
-See `REPRODUCE.md` for outputs and verification rules.
-
-## Scope
-
-The frozen inputs allow routing to be rerun without the original imagery,
-model weights, GPU or API key. The parser was bypassed in the controlled study,
-and the frozen VLM targets do not constitute a perception-accuracy benchmark.
-Exact-solver and external-control results reported in the article are not
-regenerated by this repository.
-
-## Licence
-
-The authors' original code and generated route data in this repository are
-released under the MIT License. Third-party benchmark imagery, model weights,
-raw Mission Planner files and the Concorde binary are not redistributed.
+The authors' original code and generated data are MIT licensed. Third-party
+imagery, raw Mission Planner files, model weights and the Concorde binary are
+excluded and retain their respective terms. Unreported exploratory work and
+private review correspondence are not distributed. SHA256SUMS identifies every
+archived file. Releasing independently implemented classical controls does not
+redistribute third-party solver source code.

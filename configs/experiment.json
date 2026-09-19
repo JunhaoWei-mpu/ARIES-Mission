@@ -1,0 +1,56 @@
+{
+  "model_id": "cyan2k/molmo-7B-O-bnb-4bit",
+  "grounding_prompt": "Point all buildings.",
+  "grounding_seed": 42,
+  "max_new_tokens": 1024,
+  "frozen_grounding_exception": {
+    "task_id": 22,
+    "max_new_tokens": 600,
+    "reason": "legacy frozen record retained; generation ended at the ceiling"
+  },
+  "solver_population": 50,
+  "solver_evaluation_budget": 7500,
+  "solver_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "portfolio_priority": ["Raw", "NN+2opt", "ACO", "DE", "PSO"],
+  "tie_tolerance_km": 1e-12,
+  "aco_multistart_seed_offsets": [0, 20, 40],
+  "aco_sensitivity": {
+    "alpha": [0.5, 1.0, 2.0],
+    "beta": [1.0, 2.0, 4.0],
+    "evaporation": [0.2, 0.5, 0.8],
+    "evaluation_budget": [3750, 7500, 15000]
+  },
+  "exact": {
+    "solver": "Concorde 03.12.19",
+    "binary": "external_tools/bin/concorde",
+    "integer_scale_per_km": 1000000,
+    "seed": 20260820
+  },
+  "bootstrap_seed": 20260711,
+  "bootstrap_repetitions": 10000,
+  "stochastic_workers": 20,
+  "baseline_workers": 10,
+  "sensitivity_workers": 20,
+  "classical_controls": {
+    "protocol_frozen_on": "2026-08-21",
+    "two_opt_improvement": "deterministic first improvement",
+    "multi_start_2opt": {
+      "starts_per_task_seed": 20,
+      "constructive_starts": ["nearest neighbour", "cheapest insertion"],
+      "seeded_random_starts": 18
+    },
+    "ils": {
+      "iterations_per_task_seed": 250,
+      "initialization": "nearest neighbour followed by first-improvement 2-opt",
+      "perturbation": "double bridge for N>=8; deterministic swap fallback otherwise",
+      "acceptance": "accept every perturbed local optimum; return best-so-far"
+    },
+    "runtime_matched": {
+      "reference": "mean serial Five-candidate Portfolio runtime from results/latency_serial_seed42.csv",
+      "calibration_instances": "synthetic only; formal frozen task coordinates excluded",
+      "multi_start_2opt_starts": 639,
+      "ils_iterations": 2131
+    },
+    "workers": 20
+  }
+}

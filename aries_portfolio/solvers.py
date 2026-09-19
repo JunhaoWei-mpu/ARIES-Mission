@@ -266,3 +266,50 @@ def select_portfolio(
             "tie_tolerance_km": tie_tolerance_km,
         },
     )
+
+
+def select_multistart(
+    instance: MissionInstance,
+    candidates: Sequence[RouteResult],
+    seed: int,
+    method: str = "ACO×3",
+    tie_tolerance_km: float = 1e-12,
+) -> RouteResult:
+    """Select the shortest route from repeated runs of one solver.
+
+    Unlike :func:`select_portfolio`, method names need not be unique.  The
+    first run wins a numerical tie, which makes the control deterministic.
+    """
+    if not candidates or not all(result.valid for result in candidates):
+        raise ValueError("Multistart selection requires valid candidates")
+    shortest = min(result.length_km for result in candidates)
+    selected_index = next(
+        index
+        for index, result in enumerate(candidates)
+        if abs(result.length_km - shortest) <= tie_tolerance_km
+    )
+    selected = candidates[selected_index]
+    return RouteResult(
+        task_id=instance.task_id,
+        method=method,
+        seed=seed,
+        order=selected.order,
+        length_km=selected.length_km,
+        runtime_s=sum(result.runtime_s for result in candidates),
+        evaluations=sum(result.evaluations for result in candidates),
+        valid=True,
+        selected_method=f"ACO stream {selected_index + 1}",
+        metadata={
+            "candidate_seeds": [result.seed for result in candidates],
+            "candidate_lengths_km": [result.length_km for result in candidates],
+            "tie_tolerance_km": tie_tolerance_km,
+        },
+    )
+
+
+SOLVERS: dict[str, Callable[..., RouteResult]] = {
+    "Raw": solve_raw,
+    "ACO": solve_aco,
+    "DE": solve_de,
+    "PSO": solve_pso,
+}

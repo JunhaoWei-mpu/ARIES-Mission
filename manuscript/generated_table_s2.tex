@@ -1,0 +1,22 @@
+\begin{longtable}{lrrrrrr}
+\caption{Paired task-level comparisons against the five-candidate Portfolio. Positive gains favour the Portfolio. All 13 comparisons form one Holm family. Comparisons with selectable Raw, NN+2-opt, ACO, DE and PSO measure incremental candidate-pool benefit, not independent algorithm superiority.}\label{tab:statistics}\\
+\toprule
+Comparator & W/T/L & Total gain (m) & Median [95\% CI] (m) & $r_{rb}$ & Raw $p$ & Holm $p$ \\
+\midrule\endfirsthead
+\toprule Comparator & W/T/L & Total gain (m) & Median [95\% CI] (m) & $r_{rb}$ & Raw $p$ & Holm $p$ \\
+\midrule\endhead
+Raw recognition order & 29/1/0 & 19307.00 & 320.064 [248.623, 655.759] & 1.000 & 1.823e-06 & 2.37e-05 \\
+Nearest neighbour & 28/2/0 & 4661.10 & 101.126 [51.868, 160.591] & 1.000 & 2.009e-06 & 2.41e-05 \\
+Cheapest insertion & 23/7/0 & 2588.68 & 54.744 [24.669, 83.571] & 1.000 & 5.959e-06 & 5.959e-05 \\
+NN + 2-opt & 12/18/0 & 498.11 & 0.000 [0.000, 6.762] & 1.000 & 0.0006031 & 0.004825 \\
+Insertion + 2-opt & 11/16/3 & 413.72 & 0.000 [0.000, 9.813] & 0.867 & 0.0141 & 0.07048 \\
+Multi-start 2-opt & 3/21/6 & -11.52 & 0.000 [0.000, 0.000] & -0.467 & 0.2839 & 0.5678 \\
+ILS & 2/21/7 & 14.54 & 0.000 [0.000, 0.000] & -0.422 & 0.1137 & 0.4546 \\
+ACO & 10/20/0 & 112.87 & 0.000 [0.000, 0.005] & 1.000 & 0.001676 & 0.01173 \\
+ACO$\times$3 & 6/20/4 & 15.99 & 0.000 [0.000, 0.000] & 0.309 & 0.4824 & 0.5678 \\
+DE & 21/9/0 & 1711.08 & 7.011 [1.155, 12.938] & 1.000 & 1.155e-05 & 0.0001039 \\
+PSO & 25/5/0 & 6063.74 & 124.490 [31.020, 158.642] & 1.000 & 3.461e-06 & 3.807e-05 \\
+Multi-start 2-opt (runtime-matched) & 0/23/7 & -14.82 & 0.000 [0.000, 0.000] & -1.000 & 0.008327 & 0.04996 \\
+ILS (runtime-matched) & 2/21/7 & 14.54 & 0.000 [0.000, 0.000] & -0.422 & 0.1137 & 0.4546 \\
+\bottomrule
+\end{longtable}

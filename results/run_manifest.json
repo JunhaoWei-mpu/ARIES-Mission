@@ -1,0 +1,70 @@
+{
+  "manifest_scope": "formal Scientific Reports revision only",
+  "protocol_frozen_on": "2026-08-21",
+  "hardware_software": {
+    "cpu_model": "Intel(R) Xeon(R) CPU E5-2698 v4 @ 2.20GHz",
+    "logical_cpus": 40,
+    "ram_bytes": 270155030528,
+    "operating_system": "Ubuntu 20.04; Linux 5.15.0-139-generic x86_64; glibc 2.31",
+    "python": "3.13.12",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.3"
+  },
+  "frozen_grounding": {
+    "model_id": "cyan2k/molmo-7B-O-bnb-4bit",
+    "model_revision": null,
+    "model_revision_status": "not retained in the historical acquisition record",
+    "prompt": "Point all buildings.",
+    "seed": 42,
+    "default_max_new_tokens": 1024,
+    "task_22_max_new_tokens": 600
+  },
+  "common_routing": {
+    "objective": "closed-loop double-precision Haversine distance",
+    "earth_radius_km": 6371.0088,
+    "home_fixed": true,
+    "permutation_required": true,
+    "tie_tolerance_km": 1e-12,
+    "task_ids": "1-30",
+    "formal_seeds": "0-19"
+  },
+  "portfolio": {
+    "definition_frozen_before_new_control_outcomes": true,
+    "candidates_in_priority_order": ["Raw", "NN+2opt", "ACO", "DE", "PSO"],
+    "stochastic_population": 50,
+    "evaluations_per_stochastic_branch": 7500
+  },
+  "formal_controls": {
+    "deterministic": ["NearestNeighbor", "CheapestInsertion", "Insertion+2opt"],
+    "seeded": ["MultiStart2opt", "ILS", "ACO×3"],
+    "multi_start_2opt_starts": 20,
+    "multi_start_2opt_initializations": ["nearest neighbour", "cheapest insertion", "18 seeded random permutations"],
+    "ils_perturbations": 250,
+    "ils_initialization": "nearest neighbour followed by first-improvement 2-opt",
+    "ils_perturbation": "double bridge for N>=8; deterministic swap fallback otherwise",
+    "aco_multistart_seed_offsets": [0, 20, 40],
+    "aco_multistart_total_evaluations": 22500,
+    "runtime_calibrated_multi_start_starts": 639,
+    "runtime_calibrated_ils_perturbations": 2131
+  },
+  "exact_reference": {
+    "solver": "Concorde 03.12.19 with QSopt",
+    "tasks_certified": 30,
+    "integer_scale_per_km": 1000000,
+    "seed": 20260820,
+    "independent_crosscheck": "Held-Karp on 27 tasks with N<=18"
+  },
+  "statistics": {
+    "inferential_unit": "task after within-task seed averaging",
+    "primary_family_size": 13,
+    "test": "two-sided paired Pratt-Wilcoxon",
+    "adjustment": "Holm",
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260711,
+    "spearman_status": "exploratory and outside the Holm family"
+  },
+  "formal_source_rows": 6747,
+  "source_hash_manifest": "formal_source_manifest.json",
+  "git_status": "working-tree revision package; immutable repository tag pending author deposition"
+}

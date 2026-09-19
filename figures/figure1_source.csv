@@ -1,0 +1,6 @@
+element,role
+semantic stage,operator instruction; vision-language grounding; geographic targets
+experimental boundary,freeze semantic output; evaluate geometric mission construction
+candidate redundancy,Raw; NN+2-opt; ACO; DE; PSO
+terminal decision,permutation validity; common Haversine rescoring; arbitration
+external controls,NN; insertion; insertion+2-opt; Multi-start; ILS; ACOx3; runtime controls; Concorde; Held-Karp; never selectable

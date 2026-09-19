@@ -1,0 +1,28 @@
+{
+  "model_id": "cyan2k/molmo-7B-O-bnb-4bit",
+  "model_revision": null,
+  "revision_status": "not pinned during historical acquisition and not recoverable from the local cache",
+  "grounding_prompt": "Point all buildings.",
+  "seed": 42,
+  "token_ceiling": {
+    "default": 1024,
+    "default_task_count": 29,
+    "task_22": 600,
+    "task_22_status": "generation ended at the legacy ceiling; frozen output retained"
+  },
+  "vlm_wall_time_seconds": {
+    "task_count": 30,
+    "mean": 18.374658951403884,
+    "median": 16.32966204197146,
+    "minimum": 8.383717647986487,
+    "maximum": 68.49447627202608,
+    "sum": 551.2397685421165,
+    "hardware_status": "historical VLM acquisition hardware not retained"
+  },
+  "frozen_detection_file": "results/detections_buildings.json",
+  "frozen_detection_sha256": "03661698eedfe3bc894d97dcfa4f456d726a06164ebc40ec8f44790e7378480b",
+  "frozen_geographic_instances_file": "results/frozen_instances_gps.json",
+  "frozen_geographic_instances_sha256": "a350bd6ce6ba815a7344262113f8f8ffdaec5040c4d1601ba641156c900b57ed",
+  "coordinate_metadata_sha256": "c94b88bf47bf1a6bf5453ffab893586908c74b2b940773bf670d7d4ebe0735ce",
+  "revision_policy": "detections were not regenerated during review because a changed checkpoint would change every routing instance"
+}

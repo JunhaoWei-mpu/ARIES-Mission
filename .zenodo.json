@@ -1,18 +1,17 @@
 {
-  "title": "ARIES-Mission: Auditable Routing of Frozen Vision-Language UAV Waypoints",
-  "description": "Reported five-candidate ARIES-Mission routing implementation, frozen derived waypoint sets, seeds, route outputs and focused reproduction instructions for the Scientific Reports revision.",
+  "title": "ARIES-Mission: A Vision-Language System for Auditable UAV Mission Generation",
+  "description": "Version 3.1.0: existing ARIES-Mission mission-routing implementation, complete formal classical and matched-compute controls, runtime calibration, statistical and figure-generation scripts, tests and frozen evidence. Controlled experiments isolate geometric routing from semantic grounding. No new experiments are introduced.",
   "upload_type": "software",
   "access_right": "open",
   "license": "mit",
-  "version": "3.0.0",
-  "publication_date": "2026-08-21",
+  "version": "3.1.0",
   "language": "eng",
   "keywords": [
-    "unmanned aerial vehicle",
-    "vision-language model",
-    "waypoint routing",
-    "travelling salesperson problem",
-    "route selection"
+    "UAV mission generation",
+    "vision-language system",
+    "semantic-to-geometric interface",
+    "auditable routing",
+    "candidate-level redundancy"
   ],
   "creators": [
     {

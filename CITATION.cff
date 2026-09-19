@@ -1,12 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite the associated ARIES-Mission article and archived release."
-title: "ARIES-Mission: Auditable Routing of Frozen Vision-Language UAV Waypoints"
+title: "ARIES-Mission: A Vision-Language System for Auditable UAV Mission Generation"
 type: software
-version: "3.0.0"
-date-released: 2026-08-21
+version: "3.1.0"
 license: MIT
 repository-code: "https://github.com/JunhaoWei-mpu/ARIES-Mission"
-url: "https://github.com/JunhaoWei-mpu/ARIES-Mission"
 authors:
   - family-names: Wei
     given-names: Junhao
@@ -26,3 +24,5 @@ authors:
     given-names: Xu
   - family-names: Wang
     given-names: Yapeng
+doi: 10.5281/zenodo.22843586
+url: "https://doi.org/10.5281/zenodo.22843586"
